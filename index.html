@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>سحب متجر رشة للعطور</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Cookie|Open+Sans|Mate+SC" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
+    <link rel="stylesheet" href="style.css">
+    
+<style>
+      @font-face { font-family: JuneBug; src: url('STC-Bold.ttf'); } 
+      h1 , div , body , button , textarea , .btn-pick   {
+         font-family: JuneBug
+      }
+    img {
+  width: 100%;
+  height: auto;
+}
+    </style>
+</head>
+
+<body>
+
+    <h1 style="color: #370F4F; font-size: 35px; ">سحب متجر رشة للعطور</h1>
+
+    <div class="container" id="app" style="text-align: center;">
+                <img class="center" src="logo.png" >
+
+        <form v-on:submit.prevent="splitNames">
+            <label for="names"  >جميع أسماء المشاركين</label>
+            <textarea title="Enter names" id="names" ref="textarea" @input="handleChange" v-model="names"></textarea>
+        </form>
+
+        <button class="btn-pick" @click="pickWinner">سحب تلقائي</button>
+
+        <transition name="winner-name" enter-active-class="animated fadeInDown">
+            <div class="winner-name" v-show="winner">
+                {{winner}}
+            </div>
+        </transition>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/autosize@4.0.1/dist/autosize.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
